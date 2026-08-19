@@ -53,8 +53,14 @@ Reasoning in full: [ADR 0007](https://github.com/RootCawsLLC/ksi-harness/blob/ma
   is the property that makes it worth keeping.
 - **Nothing else lives here.** No evidence, no reports, no scripts. A repository that acquires other
   purposes acquires other people with write access.
-- **Force-pushing to `main` should be disabled**, and history should never be rewritten. An anchor
-  whose history can be replaced is not an anchor.
+- **Force-pushing and deletion are blocked on `main`, and history must stay linear.** Enforced by
+  branch protection with admin enforcement on, rather than left to discipline. An anchor whose
+  history can be replaced is not an anchor.
+- **This repository is public so that protection can be enforced**, which is a free-plan constraint
+  rather than a preference: branch protection is unavailable on private repositories without Pro.
+  It is acceptable here because the boundary it records is itself public. A real boundary needs its
+  own anchor repository — check ids and run counts reveal the shape of a programme even though they
+  carry no findings and no resource names.
 - **`*.jsonl` is marked `-text`** in `.gitattributes` so no client translates line endings. These are
   chained records; a file whose bytes depend on which platform last touched it is a poor thing to be
   reasoning about deletion with.

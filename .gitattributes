@@ -1,0 +1,6 @@
+# Chained records whose bytes are hashed. No client may translate line endings: a file
+# that differs by platform is a poor thing to be reasoning about deletion with.
+#
+# Diff is left enabled deliberately. The log is append-only, so a diff that shows anything
+# other than added lines is itself the finding.
+*.jsonl -text
